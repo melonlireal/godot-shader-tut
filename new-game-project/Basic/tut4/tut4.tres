@@ -1,0 +1,68 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://h0mk64em3dbm"]
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_m7ect"]
+function = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_r0m81"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_b3pjh"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ik65g"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(1, -1)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_m7ect"]
+default_input_values = [0, 1.0, 1, 0.0, 2, 0.0]
+op_type = 0
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+
+void vertex() {
+// Input:4
+	vec2 n_out4p0 = VERTEX;
+
+
+// Input:3
+	float n_out3p0 = TIME;
+
+
+// FloatFunc:2
+	float n_out2p0 = sin(n_out3p0);
+
+
+// VectorCompose:6
+	float n_in6p0 = 1.00000;
+	vec2 n_out6p0 = vec2(n_in6p0, n_out2p0);
+
+
+// VectorOp:5
+	vec2 n_out5p0 = n_out4p0 * n_out6p0;
+
+
+// Output:0
+	VERTEX = n_out5p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/vertex/2/node = SubResource("VisualShaderNodeFloatFunc_m7ect")
+nodes/vertex/2/position = Vector2(-360, 280)
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_r0m81")
+nodes/vertex/3/position = Vector2(-640, 260)
+nodes/vertex/4/node = SubResource("VisualShaderNodeInput_b3pjh")
+nodes/vertex/4/position = Vector2(-420, 0)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVectorOp_ik65g")
+nodes/vertex/5/position = Vector2(100, 0)
+nodes/vertex/6/node = SubResource("VisualShaderNodeVectorCompose_m7ect")
+nodes/vertex/6/position = Vector2(-140, 140)
+nodes/vertex/connections = PackedInt32Array(3, 0, 2, 0, 5, 0, 0, 0, 4, 0, 5, 0, 6, 0, 5, 1, 2, 0, 6, 1)

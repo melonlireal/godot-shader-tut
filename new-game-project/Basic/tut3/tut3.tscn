@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi86u76p5j75x"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_k4fg1"]
+[ext_resource type="Shader" uid="uid://csxb5jfiy6e22" path="res://Basic/tut3/tut3.tres" id="1_vkiox"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovsqd"]
+shader = ExtResource("1_vkiox")
+
+[node name="starter" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ovsqd")
+position = Vector2(576, 327)
+texture = ExtResource("1_k4fg1")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+zoom = Vector2(2, 2)

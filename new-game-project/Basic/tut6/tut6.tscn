@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cghc81id1slpc"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_gmsnm"]
+[ext_resource type="Shader" uid="uid://cikx13c621dc6" path="res://Basic/tut6/tut6.gdshader" id="1_pbvrr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dpmog"]
+shader = ExtResource("1_pbvrr")
+shader_parameter/reveal_amount = 0.0
+
+[node name="starter" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dpmog")
+position = Vector2(576, 327)
+texture = ExtResource("1_gmsnm")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+zoom = Vector2(2, 2)
