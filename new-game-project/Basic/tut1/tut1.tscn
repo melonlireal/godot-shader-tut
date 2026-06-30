@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b15f16v6hgday"]
+
+[ext_resource type="Shader" uid="uid://xqk6gvga65v2" path="res://Basic/tut1/tut1.tres" id="1_7darn"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_o5ski"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5ski"]
+shader = ExtResource("1_7darn")
+
+[node name="tut1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_o5ski")
+position = Vector2(576, 327)
+texture = ExtResource("1_o5ski")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+zoom = Vector2(2, 2)
